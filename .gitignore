@@ -1,0 +1,32 @@
+# general
+*.orig
+*.bak
+*.rej
+.DS_Store
+
+# python
+*.pyc
+*~
+python/*
+test.outlog
+
+# from kdiff3
+*.BACKUP.*
+*.BASE.*
+*.LOCAL.*
+*.REMOTE.*
+
+# pycharm
+.idea/
+
+# kdevelop
+.kdev4/
+.kdev5/
+*.kdev4
+*.kdev5
+
+# VSCode
+.vscode/
+
+# Craft
+.craft/
