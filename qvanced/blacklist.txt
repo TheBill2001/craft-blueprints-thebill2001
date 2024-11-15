@@ -1,20 +1,18 @@
-# general
-manifest/.*
-.*\.exp
-.*\.pdb
-.*\.la
-.*\.nsis
-.*\.prl
-
-# multiple docs
-doc/.*
-share/man/.*
-man/.*
-share/xml/.*
+# common app stuff
+etc/xml/.*
+etc/ssl/.*
+share/ffmpeg/.*
 share/locale/.*
 
-# common app stuff
-share/ffmpeg/.*
+bin/data/applications/.*
+bin/data/gettext-.*
+bin/data/icu/.*
+bin/data/kdevappwizard/.*
+bin/data/kf6/.*
+bin/data/kstyle/.*
+bin/data/metainfo/.*
+bin/data/mime/.*
+bin/data/QtCurve/.*
 
 # kill qsvgengine, we use our KIconThemes engine with re-coloring
 plugins/iconengines/.*qsvgicon.*
@@ -22,6 +20,7 @@ plugins/iconengines/.*qsvgicon.*
 # more qt leftovers
 translations/.*
 
+# Unused Qml
 qml/Qt/labs/.*
 qml/Qt/test/.*
 qml/Assets/.*
