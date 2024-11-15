@@ -17,3 +17,5 @@ translations/qtwebsockets.*.qm
 (bin/data|share)/metainfo.*
 
 plugins/iconengines/.*qsvgicon.*
+
+qml/Assets.*

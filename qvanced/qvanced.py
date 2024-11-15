@@ -14,6 +14,9 @@ class subinfo(info.infoclass):
         self.svnTargets["dev"] = "https://github.com/TheBill2001/QVanced.git|dev"
         self.defaultTarget = "dev"
 
+        self.options.package.movePluginsToBin = False
+        self.options.package.moveTranslationsToBin = False
+
     def setDependencies(self):
         self.buildDependencies["dev-utils/cmake"] = None
         self.buildDependencies["kde/frameworks/extra-cmake-modules"] = None
@@ -47,17 +50,17 @@ class Package(CMakePackageBase):
         if not CraftCore.compiler.isLinux:
             self.ignoredPackages += ["libs/dbus", "libs/qt6/qtwayland"]
 
-        self.ignoredPackages += [
-            "libs/qt6/qt5compat",
-            "libs/qt6/qttools",
-            "libs/qt6/qtlanguageserver",
-            "libs/qt/qtmultimedia",
-            "libs/cups",
-            "kde/frameworks/tier1/kdbusaddons",
-            "kde/frameworks/tier3/kcmutils",
-            "kde/frameworks/tier1/kwidgetsaddons",
-            "kde/frameworks/tier3/kconfigwidgets",
-        ]
+        # self.ignoredPackages += [
+        #     "libs/qt6/qt5compat",
+        #     "libs/qt6/qttools",
+        #     "libs/qt6/qtlanguageserver",
+        #     "libs/qt/qtmultimedia",
+        #     "libs/cups",
+        #     "kde/frameworks/tier1/kdbusaddons",
+        #     "kde/frameworks/tier3/kcmutils",
+        #     "kde/frameworks/tier1/kwidgetsaddons",
+        #     "kde/frameworks/tier3/kconfigwidgets",
+        # ]
 
         self.defines["shortcuts"] = [
             {"name": self.subinfo.displayName, "target": "bin\qvanced.exe"}
@@ -69,8 +72,3 @@ class Package(CMakePackageBase):
         self.blacklist_file.append(os.path.join(self.blueprintDir(), "blacklist.txt"))
 
         return super().createPackage()
-
-    def preArchive(self):
-        utils.mergeTree(Path(self.archiveDir()) / "bin", self.archiveDir())
-
-        return super().preArchive()
