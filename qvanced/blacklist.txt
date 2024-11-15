@@ -1,23 +1,32 @@
-.*\.sh
-translations/assistant.*.qm
-translations/designer.*.qm
-translations/linguist.*.qm
-translations/qt_help.*.qm
-translations/qtconnectivity_bg.*.qm
-translations/qtlocation.*.qm
-translations/qtmultimedia.*.qm
-translations/qtscript.*.qm
-translations/qtserialport.*.qm
-translations/qtwebengine.*.qm
-translations/qtwebsockets.*.qm
+# general
+manifest/.*
+.*\.exp
+.*\.pdb
+.*\.la
+.*\.nsis
+.*\.prl
 
-(bin/data|share)/gettext.*
-(bin/data|share)/icu.*
-(bin/data|share)/kdevappwizard.*
-(bin/data|share)/metainfo.*
+# multiple docs
+doc/.*
+share/man/.*
+man/.*
+share/xml/.*
+share/locale/.*
 
+# common app stuff
+share/ffmpeg/.*
+
+# kill qsvgengine, we use our KIconThemes engine with re-coloring
 plugins/iconengines/.*qsvgicon.*
 
-qml/Assets.*
-qml/QtTest.*
-qml/QtTextToSpeech.*
+# doubled qt dlls
+lib/[^/]*\.dll
+
+# more qt leftovers
+translations/.*
+
+qml/Qt/labs/.*
+qml/Qt/test/.*
+qml/Assets/.*
+qml/QtTest/.*
+qml/QtTextToSpeech/.*
