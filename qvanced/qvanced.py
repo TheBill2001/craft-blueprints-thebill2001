@@ -14,9 +14,6 @@ class subinfo(info.infoclass):
         self.svnTargets["dev"] = "https://github.com/TheBill2001/QVanced.git|dev"
         self.defaultTarget = "dev"
 
-        self.options.package.movePluginsToBin = False
-        self.options.package.moveTranslationsToBin = False
-
     def setDependencies(self):
         self.buildDependencies["dev-utils/cmake"] = None
         self.buildDependencies["kde/frameworks/extra-cmake-modules"] = None
@@ -63,7 +60,7 @@ class Package(CMakePackageBase):
         ]
 
         self.defines["shortcuts"] = [
-            {"name": self.subinfo.displayName, "target": "qvanced.exe"}
+            {"name": self.subinfo.displayName, "target": "bin\qvanced.exe"}
         ]
 
         self.addExecutableFilter(
