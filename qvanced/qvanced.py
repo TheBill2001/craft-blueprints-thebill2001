@@ -48,19 +48,22 @@ class Package(CMakePackageBase):
 
     def createPackage(self):
         if not CraftCore.compiler.isLinux:
-            self.ignoredPackages += ["libs/dbus", "libs/qt6/qtwayland"]
+            self.ignoredPackages += [
+                "libs/dbus",
+                "libs/qt6/qtwayland",
+                "kde/frameworks/tier1/kdbusaddons",
+            ]
 
-        # self.ignoredPackages += [
-        #     "libs/qt6/qt5compat",
-        #     "libs/qt6/qttools",
-        #     "libs/qt6/qtlanguageserver",
-        #     "libs/qt/qtmultimedia",
-        #     "libs/cups",
-        #     "kde/frameworks/tier1/kdbusaddons",
-        #     "kde/frameworks/tier3/kcmutils",
-        #     "kde/frameworks/tier1/kwidgetsaddons",
-        #     "kde/frameworks/tier3/kconfigwidgets",
-        # ]
+        self.ignoredPackages += [
+            # "libs/qt6/qt5compat",
+            "libs/qt6/qttools",
+            "libs/qt6/qtlanguageserver",
+            "libs/qt/qtmultimedia",
+            "libs/cups",
+            # "kde/frameworks/tier3/kcmutils",
+            # "kde/frameworks/tier1/kwidgetsaddons",
+            # "kde/frameworks/tier3/kconfigwidgets",
+        ]
 
         self.defines["shortcuts"] = [
             {"name": self.subinfo.displayName, "target": "bin\qvanced.exe"}
