@@ -19,3 +19,5 @@ translations/qtwebsockets.*.qm
 plugins/iconengines/.*qsvgicon.*
 
 qml/Assets.*
+qml/QtTest.*
+qml/QtTextToSpeech.*
