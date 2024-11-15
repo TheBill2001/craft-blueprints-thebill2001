@@ -1,0 +1,2 @@
+# doubled qt dlls
+lib/[^/]*\.dll

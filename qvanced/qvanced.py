@@ -64,6 +64,11 @@ class Package(CMakePackageBase):
         )
         self.blacklist_file.append(os.path.join(self.blueprintDir(), "blacklist.txt"))
 
+        if CraftCore.compiler.isWindows:
+            self.blacklist_file.append(
+                os.path.join(self.blueprintDir(), "blacklist_windows.txt")
+            )
+
         return super().createPackage()
 
     def preArchive(self):

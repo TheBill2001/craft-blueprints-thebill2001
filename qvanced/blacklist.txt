@@ -19,9 +19,6 @@ share/ffmpeg/.*
 # kill qsvgengine, we use our KIconThemes engine with re-coloring
 plugins/iconengines/.*qsvgicon.*
 
-# doubled qt dlls
-lib/[^/]*\.dll
-
 # more qt leftovers
 translations/.*
 
