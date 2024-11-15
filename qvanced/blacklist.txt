@@ -14,6 +14,11 @@ bin/data/metainfo/.*
 bin/data/mime/.*
 bin/data/QtCurve/.*
 
+bin/plugins/generic/.*
+bin/plugins/qmlls/.*
+bin/plugins/sqldrivers/.*
+bin/plugins/texttospeech/.*
+
 # kill qsvgengine, we use our KIconThemes engine with re-coloring
 plugins/iconengines/.*qsvgicon.*
 
