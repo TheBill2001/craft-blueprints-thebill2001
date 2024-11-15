@@ -14,7 +14,7 @@ class subinfo(info.infoclass):
         self.svnTargets["dev"] = "https://github.com/TheBill2001/QVanced.git|dev"
         self.defaultTarget = "dev"
 
-        # We will move manually, Craft seem to be messing this up
+        # We will move these manually, Craft seem to be messing this up
         self.options.package.movePluginsToBin = False
         self.options.package.moveTranslationsToBin = False
 
@@ -78,25 +78,16 @@ class Package(CMakePackageBase):
         return super().createPackage()
 
     def preArchive(self):
-        # utils.mergeTree(
-        #     self.archiveDir() / "translations",
-        #     self.archiveDir() / "bin" / "translations",
-        # )
-
-        # utils.mergeTree(self.archiveDir() / "qml", self.archiveDir() / "bin" / "qml")
-
-        # utils.mergeTree(
-        #     self.archiveDir() / "plugins", self.archiveDir() / "bin" / "plugins"
-        # )
-
-        # utils.mergeTree(
-        #     self.archiveDir() / "translations",
-        #     self.archiveDir() / "bin" / "translations",
-        # )
+        # We will move these manually, Craft seem to be messing this up
+        utils.mergeTree(self.archiveDir() / "qml", self.archiveDir() / "bin" / "qml")
 
         utils.mergeTree(
-            self.archiveDir() / "bin",
-            self.archiveDir(),
+            self.archiveDir() / "plugins", self.archiveDir() / "bin" / "plugins"
+        )
+
+        utils.mergeTree(
+            self.archiveDir() / "translations",
+            self.archiveDir() / "bin" / "translations",
         )
 
         return super().preArchive()
