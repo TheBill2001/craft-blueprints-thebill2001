@@ -73,15 +73,20 @@ class Package(CMakePackageBase):
 
     def preArchive(self):
         # We will move these manually, Craft seem to be messing this up
-        utils.mergeTree(self.archiveDir() / "qml", self.archiveDir() / "bin" / "qml")
 
-        utils.mergeTree(
-            self.archiveDir() / "plugins", self.archiveDir() / "bin" / "plugins"
-        )
+        qmlDir = self.archiveDir() / "qml"
+        if qmlDir.exists() and qmlDir.is_dir():
+            utils.mergeTree(qmlDir, self.archiveDir() / "bin" / "qml")
 
-        utils.mergeTree(
-            self.archiveDir() / "translations",
-            self.archiveDir() / "bin" / "translations",
-        )
+        pluginsDir = self.archiveDir() / "plugins"
+        if pluginsDir.exists() and pluginsDir.is_dir():
+            utils.mergeTree(pluginsDir, self.archiveDir() / "bin" / "plugins")
+
+        transDir = self.archiveDir() / "translations"
+        if transDir.exists() and transDir.is_dir():
+            utils.mergeTree(
+                transDir,
+                self.archiveDir() / "bin" / "translations",
+            )
 
         return super().preArchive()
