@@ -3,10 +3,14 @@ etc/xml/.*
 etc/ssl/.*
 share/ffmpeg/.*
 share/locale/.*
+translations/.*
 
 bin/data/applications/.*
+bin/data/color-schemes/.*
 bin/data/gettext-.*
+bin/data/icons/.*
 bin/data/icu/.*
+bin/data/iso-codes/.*
 bin/data/kdevappwizard/.*
 bin/data/kf6/.*
 bin/data/kstyle/.*
@@ -14,20 +18,38 @@ bin/data/metainfo/.*
 bin/data/mime/.*
 bin/data/QtCurve/.*
 
-bin/plugins/generic/.*
-bin/plugins/qmlls/.*
-bin/plugins/sqldrivers/.*
-bin/plugins/texttospeech/.*
+plugins/multimedia/.*
+plugins/qmlls/.*
+plugins/sqldrivers/.*
+plugins/texttospeech/.*
 
 # kill qsvgengine, we use our KIconThemes engine with re-coloring
 plugins/iconengines/.*qsvgicon.*
 
-# more qt leftovers
-translations/.*
-
 # Unused Qml
+qml/Assets/.*
+qml/QmlTime/.*
 qml/Qt/labs/.*
 qml/Qt/test/.*
-qml/Assets/.*
+qml/QtMultimedia/.*
 qml/QtTest/.*
 qml/QtTextToSpeech/.*
+
+# Unused lib. This is PAINFUL.
+bin/(lib)?(aom).*
+bin/(lib)?(avcodec).*
+bin/(lib)?(avfilter).*
+bin/(lib)?(avformat).*
+bin/(lib)?(avutil).*
+bin/(lib)?(brotlienc).*
+bin/(lib)?(concrt140).*
+bin/(lib)?(dav1d).*
+bin/(lib)?(ffi-8).*
+bin/(lib)?(fftw3).*
+bin/(lib)?(gettext).*
+bin/(lib)?(gio).*
+bin/(lib)?(girepository).*
+bin/(lib)?(glib).*
+bin/(lib)?(gmodule).*
+bin/(lib)?(gobject).*
+bin/(lib)?(gthread).*

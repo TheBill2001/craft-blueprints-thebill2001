@@ -1,0 +1,2 @@
+# Excutable
+bin/qvanced(\.exe)?

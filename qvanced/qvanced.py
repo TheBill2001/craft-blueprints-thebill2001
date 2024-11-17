@@ -18,6 +18,11 @@ class subinfo(info.infoclass):
         self.options.package.movePluginsToBin = False
         self.options.package.moveTranslationsToBin = False
 
+    def registerOptions(self):
+        self.parent.package.categoryInfo.platforms = (
+            CraftCore.compiler.Platforms.NotAndroid
+        )
+
     def setDependencies(self):
         self.buildDependencies["dev-utils/cmake"] = None
         self.buildDependencies["kde/frameworks/extra-cmake-modules"] = None
@@ -59,34 +64,24 @@ class Package(CMakePackageBase):
             {"name": self.subinfo.displayName, "target": "bin\qvanced.exe"}
         ]
 
-        self.addExecutableFilter(
-            r"(bin|libexec)/(?!(" + self.applicationExecutable + r")).*"
-        )
-        self.blacklist_file.append(os.path.join(self.blueprintDir(), "blacklist.txt"))
+        # whitelist_file = ["whitelist.txt"]
 
-        # if CraftCore.compiler.isWindows:
-        #     self.blacklist_file.append(
-        #         os.path.join(self.blueprintDir(), "blacklist_windows.txt")
-        #     )
+        # if CraftCore.compiler.isLinux:
+        #     whitelist_file += ["whitelist_linux.txt"]
+        # elif CraftCore.compiler.isWindows:
+        #     whitelist_file += ["whitelist_windows.txt"]
+        # elif CraftCore.compiler.isMacOS:
+        #     whitelist_file += ["whitelist_macos.txt"]
+
+        # self.whitelist_file.append(
+        #     [os.path.join(self.blueprintDir(), file) for file in whitelist_file]
+        # )
+
+        # self.blacklist_file.append(os.path.join(self.blueprintDir(), "blacklist.txt"))
 
         return super().createPackage()
 
     def preArchive(self):
         # We will move these manually, Craft seem to be messing this up
-
-        qmlDir = self.archiveDir() / "qml"
-        if qmlDir.exists() and qmlDir.is_dir():
-            utils.mergeTree(qmlDir, self.archiveDir() / "bin" / "qml")
-
-        pluginsDir = self.archiveDir() / "plugins"
-        if pluginsDir.exists() and pluginsDir.is_dir():
-            utils.mergeTree(pluginsDir, self.archiveDir() / "bin" / "plugins")
-
-        transDir = self.archiveDir() / "translations"
-        if transDir.exists() and transDir.is_dir():
-            utils.mergeTree(
-                transDir,
-                self.archiveDir() / "bin" / "translations",
-            )
-
+        utils.mergeTree(self.archiveDir() / "bin", self.archiveDir())
         return super().preArchive()
