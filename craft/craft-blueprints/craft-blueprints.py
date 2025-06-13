@@ -4,9 +4,9 @@ import info
 class subinfo(info.infoclass):
     def setTargets(self):
         self.svnTargets["master"] = (
-            f"[git]https://github.com/TheBill2001/craft-blueprints-qvanced|master"
+            f"[git]https://github.com/TheBill2001/craft-blueprints|main"
         )
-        self.defaultTarget = "master"
+        self.defaultTarget = "main"
 
     def setDependencies(self):
         self.buildDependencies["craft/craft-core"] = "default"
