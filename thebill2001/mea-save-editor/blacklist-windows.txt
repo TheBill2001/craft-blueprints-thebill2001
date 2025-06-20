@@ -2,6 +2,7 @@ bin/(lib)?concrt140\..*
 bin/(lib)?vcamp140\..*
 bin/(lib)?vccorlib140\..*
 bin/(lib)?vcruntime140_threads\..*
+bin/(lib)?mfc140.*
 bin/(lib)?msvcp140_atomic_wait\..*
 bin/(lib)?msvcp140_codecvt_ids\..*
 

@@ -31,7 +31,6 @@ bin/(lib)?Qt6QmlCore\..*
 bin/(lib)?Qt6QmlLocalStorage\..*
 bin/(lib)?Qt6QmlXmlListModel\..*
 bin/(lib)?Qt6QuickControls2(?!Basic|Impl).+\..*
-bin/(lib)?Qt6QuickDialogs2.*
 bin/(lib)?Qt6QuickEffects\..*
 bin/(lib)?Qt6QuickParticles\..*
 bin/(lib)?Qt6QuickTest\..*
